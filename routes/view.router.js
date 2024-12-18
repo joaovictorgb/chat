@@ -1,9 +1,8 @@
-import {Router} from 'express';
-const router= Router();
-router.get('/',(req,res) =>{
-    res.render('index',{
-        title: "Chat em tempo real",
-        style: 'style.css'
-    });
+import express from 'express';
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.render('index', {});
 });
+
 export default router;
