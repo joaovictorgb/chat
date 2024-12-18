@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is to coderhouse course Back-end",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
