@@ -3,18 +3,18 @@ let user;
 const chatBox = document.getElementById('chatBox');
 
 // Sweetalert para autenticação
-Swal.fire({
-    title: 'Identificação',
-    input: 'text',
-    text: 'Digite o nome de usuário para se identificar no chat',
-    inputValidator: (value) => {
-        return !value && 'Você precisa digitar um nome de usuário para continuar!'
-    },
-    allowOutsideClick: false
-}).then(result => {
-    user = result.value;
-    socket.emit('authenticatedUser', user);
-});
+// Swal.fire({
+//     title: 'Identificação',
+//     input: 'text',
+//     text: 'Digite o nome de usuário para se identificar no chat',
+//     inputValidator: (value) => {
+//         return !value && 'Você precisa digitar um nome de usuário para continuar!'
+//     },
+//     allowOutsideClick: false
+// }).then(result => {
+//     user = result.value;
+//     socket.emit('authenticatedUser', user);
+// });
 
 // Ouvir por novos usuários conectados
 socket.on('newUserConnected', username => {
