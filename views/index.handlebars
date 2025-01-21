@@ -1,12 +1,17 @@
-<main>
+<main class="flex">
     <div class="bg-[#402E58] w-1/4 h-screen px-5">
+
         <div class="flex flex-col items-center justify-center">
-            <div class="w-full flex items-center gap-4 mt-4">
-                <input type="text" class="bg-[#35234E] outline-none pl-2 py-[5px] rounded-xl text-white placeholder-white text-xs w-full">
-                <button class="bg-[#35234E] py-[3px] px-[5px] rounded-xl text-white">+</button>
+            <div class="w-full flex items-center gap-4 mt-4 h-8">
+                <div class="w-full h-full relative">
+                    <i class="fa-regular fa-user absolute text-[#7C6A95] text-xs top-2 left-2"></i>
+                    <input type="text" class="bg-[#35234E] outline-none pl-6 h-full rounded-xl text-[#7C6A95] placeholder-[#7C6A95] text-xs w-full" placeholder="Buscar usuário">
+                </div>
+                <button class="bg-[#35234E] h-full px-[9px] rounded-md text-white flex items-center justify-center"><i class="fa-solid fa-magnifying-glass text-xs text-[#7C6A95]"></i></button>
             </div>
 
-            <div class="h-[1px] w-full bg-[#35234E] mt-5"></div>
+        {{!-- risco na tela --}}
+        <div class="h-[1px] w-full bg-[#35234E] mt-5"></div>
 
         <div class="flex flex-col w-full gap-2">
             
@@ -55,13 +60,25 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>   
+    <div class="w-full flex flex-col justify-between py-10">
+        <div class="px-24 py-4 flex flex-col gap-4">
+            <div class="flex flex-col items-end">
+                <p class="text-xs"><span class="font-bold">Odair</span> - 12:37</p>
+                <p class="text-sm px-2 py-[1px] bg-[#7C6A95] inline-block rounded-md text-white">Olá, como você está?</p>
+            </div>
 
-
+            <div>
+                <p class="text-xs"><span class="font-bold">Lucas</span> - 12:37</p>
+                <p class="text-sm px-2 py-[1px] bg-[#F3F3F4] inline-block rounded-md text-black">Tudo bem e por aí?</p>
             </div>
         </div>
-    </div>
-    
-    <div>
-
+        <div class="flex items-center w-full px-24 gap-4 h-8">
+            <input type="text" class="border-[1px] h-full w-full border-[#402E58] rounded-md pl-2 text-sm">
+            <div class="flex justify-center items-center text-[#7C6A95] h-full bg-[#402E58] px-4 rounded-md cursor-pointer">
+                <i class="fa-regular fa-paper-plane"></i>
+            </div>
+        </div>
     </div>
 </main>
