@@ -1,84 +1,152 @@
 <main class="flex">
     <div class="bg-[#402E58] w-1/4 h-screen px-5">
-
+        <!-- Seção de Busca e Lista de Usuários -->
         <div class="flex flex-col items-center justify-center">
+            <!-- Input de Busca -->
             <div class="w-full flex items-center gap-4 mt-4 h-8">
                 <div class="w-full h-full relative">
                     <i class="fa-regular fa-user absolute text-[#7C6A95] text-xs top-2 left-2"></i>
-                    <input type="text" class="bg-[#35234E] outline-none pl-6 h-full rounded-xl text-[#7C6A95] placeholder-[#7C6A95] text-xs w-full" placeholder="Buscar usuário">
+                    <input type="text" id="searchInput" class="bg-[#35234E] outline-none pl-6 h-full rounded-xl text-[#7C6A95] placeholder-[#7C6A95] text-xs w-full" placeholder="Buscar usuário">
                 </div>
-                <button class="bg-[#35234E] h-full px-[9px] rounded-md text-white flex items-center justify-center"><i class="fa-solid fa-magnifying-glass text-xs text-[#7C6A95]"></i></button>
+                <button class="bg-[#35234E] h-full px-[9px] rounded-md text-white flex items-center justify-center">
+                    <i class="fa-solid fa-magnifying-glass text-xs text-[#7C6A95]"></i>
+                </button>
             </div>
 
-        {{!-- risco na tela --}}
-        <div class="h-[1px] w-full bg-[#35234E] mt-5"></div>
+            <div class="h-[1px] w-full bg-[#35234E] mt-5"></div>
 
-        <div class="flex flex-col w-full gap-2">
-            
-            <div class="w-full bg-[#35234E] rounded-md mt-10 px-4 py-2 hover:opacity-85 hover:cursor-pointer"> 
-                <div class="w-full flex items-center justify-between">
-                    <div class="w-12 h-12 bg-white rounded-full border-[1px] border-black"></div>
-                    <div class="w-[60%]">
-                        <p class="text-sm font-bold text-white">Odair</p>
-                        <p class="text-xs text-red-500">off-line</p>
-                    </div>
-                    <div class="">
-                        <div class="flex flex-col">
-                            <p class="text-xs py-[1px] px-[6px] bg-green-300 rounded-full">2</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-full bg-[#35234E] rounded-md px-4 py-2 hover:opacity-85 hover:cursor-pointer"> 
-                <div class="w-full flex items-center justify-between">
-                    <div class="w-12 h-12 bg-white rounded-full border-[1px] border-black"></div>
-                    <div class="w-[60%]">
-                        <p class="text-sm font-bold text-white">Lucas</p>
-                        <p class="text-xs text-green-500">on-line</p>
-                    </div>
-                    <div class="">
-                        <div class="flex flex-col">
-                            <p class="text-xs py-[1px] px-[6px] bg-green-300 rounded-full">7</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-full bg-[#35234E] rounded-md px-4 py-2 hover:opacity-85 hover:cursor-pointer"> 
-                <div class="w-full flex items-center justify-between">
-                    <div class="w-12 h-12 bg-white rounded-full border-[1px] border-black"></div>
-                    <div class="w-[60%]">
-                        <p class="text-sm font-bold text-white">Nathan</p>
-                        <p class="text-xs text-green-500">on-line</p>
-                    </div>
-                    <div class="">
-                        <div class="flex flex-col">
-                            <p class="text-xs py-[1px] px-[6px] bg-green-300 rounded-full">1</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Lista de Usuários -->
+            <div class="flex flex-col w-full gap-2" id="usersList">
+                <!-- Usuários serão inseridos aqui dinamicamente -->
             </div>
         </div>
     </div>
-    </div>   
-    <div class="w-full flex flex-col justify-between py-10">
-        <div class="px-24 py-4 flex flex-col gap-4">
-            <div class="flex flex-col items-end">
-                <p class="text-xs"><span class="font-bold">Odair</span> - 12:37</p>
-                <p class="text-sm px-2 py-[1px] bg-[#7C6A95] inline-block rounded-md text-white">Olá, como você está?</p>
-            </div>
 
-            <div>
-                <p class="text-xs"><span class="font-bold">Lucas</span> - 12:37</p>
-                <p class="text-sm px-2 py-[1px] bg-[#F3F3F4] inline-block rounded-md text-black">Tudo bem e por aí?</p>
-            </div>
+    <!-- Seção de Mensagens -->
+    <div class="w-full flex flex-col justify-between py-10">
+        <div class="px-24 py-4 flex flex-col gap-4" id="messagesList">
+            <!-- Mensagens serão inseridas aqui dinamicamente -->
         </div>
+
+        <!-- Input de Mensagem -->
         <div class="flex items-center w-full px-24 gap-4 h-8">
-            <input type="text" class="border-[1px] h-full w-full border-[#402E58] rounded-md pl-2 text-sm">
-            <div class="flex justify-center items-center text-[#7C6A95] h-full bg-[#402E58] px-4 rounded-md cursor-pointer">
+            <input type="text" id="messageInput" class="border-[1px] h-full w-full border-[#402E58] rounded-md pl-2 text-sm" placeholder="Digite uma mensagem...">
+            <div class="flex justify-center items-center text-[#7C6A95] h-full bg-[#402E58] px-4 rounded-md cursor-pointer" id="sendMessageBtn">
                 <i class="fa-regular fa-paper-plane"></i>
             </div>
         </div>
     </div>
 </main>
+
+<!-- Modal de Entrada -->
+<div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+    <div class="bg-white p-8 rounded-md w-96">
+        <h2 class="text-center text-lg font-semibold">Digite seu nome</h2>
+        <input type="text" id="usernameInput" class="mt-4 w-full p-2 border border-gray-300 rounded-md" placeholder="Seu nome">
+        <button id="enterChatBtn" class="mt-4 w-full bg-[#35234E] text-white p-2 rounded-md">Entrar no Chat</button>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const socket = io();
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const messageInput = document.getElementById('messageInput');
+        const messagesList = document.getElementById('messagesList');
+        const usersList = document.getElementById('usersList');
+        const loginModal = document.getElementById('loginModal');
+        const enterChatBtn = document.getElementById('enterChatBtn');
+        const usernameInput = document.getElementById('usernameInput');
+        
+        let username = '';
+        
+        // Função para carregar mensagens
+        function loadMessages() {
+            fetch('/')
+                .then(response => response.json())
+                .then(data => {
+                    messagesList.innerHTML = '';
+                    data.messages.forEach(msg => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.classList.add('flex', 'flex-col', msg.sent ? 'items-end' : 'items-start');
+                        messageDiv.innerHTML = `
+                            <p class="text-xs"><span class="font-bold">${msg.user}</span> - ${msg.time}</p>
+                            <p class="text-sm px-2 py-[1px] ${msg.sent ? 'bg-[#7C6A95] text-white' : 'bg-[#F3F3F4] text-black'} inline-block rounded-md">${msg.content}</p>
+                        `;
+                        messagesList.appendChild(messageDiv);
+                    });
+                });
+        }
+
+        // Função para exibir lista de usuários
+        function updateUserList(users) {
+            usersList.innerHTML = '';
+            users.forEach(user => {
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user-item', 'w-full', 'bg-[#35234E]', 'rounded-md', 'px-4', 'py-2');
+                userDiv.innerHTML = `
+                    <div class="w-full flex items-center justify-between">
+                        <p class="text-sm font-bold text-white">${user.username}</p>
+                    </div>
+                `;
+                usersList.appendChild(userDiv);
+            });
+        }
+
+        // Enviar mensagem quando o botão for clicado
+        sendMessageBtn.addEventListener('click', function() {
+            const messageContent = messageInput.value.trim();
+            if (messageContent !== '') {
+                socket.emit('message', {
+                    user: username,
+                    content: messageContent,
+                    time: new Date().toLocaleTimeString(),
+                    sent: true
+                });
+                messageInput.value = '';  // Limpar input
+            }
+        });
+
+        // Receber mensagens e atualizá-las na interface
+        socket.on('messageLogs', function(messages) {
+            messagesList.innerHTML = '';
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('flex', 'flex-col', msg.sent ? 'items-end' : 'items-start');
+                messageDiv.innerHTML = `
+                    <p class="text-xs"><span class="font-bold">${msg.user}</span> - ${msg.time}</p>
+                    <p class="text-sm px-2 py-[1px] ${msg.sent ? 'bg-[#7C6A95] text-white' : 'bg-[#F3F3F4] text-black'} inline-block rounded-md">${msg.content}</p>
+                `;
+                messagesList.appendChild(messageDiv);
+            });
+        });
+
+        // Receber novos usuários conectados e atualizar a lista
+        socket.on('usersList', function(users) {
+            updateUserList(users);
+        });
+
+        // Atualizar a lista de usuários com a chegada de um novo
+        socket.on('newUserConnected', function(username) {
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('user-item', 'w-full', 'bg-[#35234E]', 'rounded-md', 'px-4', 'py-2');
+            userDiv.innerHTML = `
+                <div class="w-full flex items-center justify-between">
+                    <p class="text-sm font-bold text-white">${username}</p>
+                </div>
+            `;
+            usersList.appendChild(userDiv);
+        });
+
+        // Modal de login
+        enterChatBtn.addEventListener('click', function() {
+            username = usernameInput.value.trim();
+            if (username) {
+                socket.emit('authenticatedUser', username);
+                loginModal.style.display = 'none';
+                loadMessages(); // Carregar mensagens assim que o usuário entrar
+            }
+        });
+    });
+</script>

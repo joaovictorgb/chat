@@ -47,3 +47,4 @@ socket.on('messageLogs', data => {
     });
     log.innerHTML = messages;
 });
+
